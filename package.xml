@@ -73,5 +73,15 @@
         <members>Year_Of_Class__c</members>
         <name>CustomTab</name>
     </types>
+    <types>
+        <members>Pan_Card__c-Pan Card Layout</members>
+        <members>StudentSubjects__c-StudentSubjects Layout</members>
+        <members>Student__c-Registrar Layout</members>
+        <members>Student__c-Teacher Layout</members>
+        <members>Subject__c-Subject Layout</members>
+        <members>Teacher__c-Teacher Layout</members>
+        <members>Year_Of_Class__c-Class Layout</members>
+        <name>Layout</name>
+    </types>
     <version>53.0</version>
 </Package>
