@@ -1,21 +1,70 @@
-//Cast the object to an integer
-public class MyApexClass {
-    public void ObjectMethod() {
+/**
+*  Description     :  Class For Practising Apex DataTypes and Variables
+*
+*  Created By      :  Mrinal Das
+*
+*  Created Date    :  06/24/2022
+*
+*  Revision Logs   :    V1.0 - Created - Mrinal Das
+*			 
+*
+**/
+
+public with sharing class ApexDataTypes {
+    /**
+     * 
+     *   @description    :   Creating an Object Method and Type-Casting It To Integer
+     *
+     *   @args           :   
+     *
+     *   @return         :   void
+     *
+     *   @revision Log   :   V1.1 - Created  - 06/24/2022 - Mrinal Das
+     *		          
+     * 
+     **/
+
+    public void objectMethod() {
         Object obj = 10;
         Integer i = (Integer)obj;
         System.assertEquals(obj,i);
         System.debug(i);
         
     }
+
+    /**
+     * 
+     *   @description    :    Cast the object to the ApexDataTypes custom type
+     *
+     *   @args           :   
+     *
+     *   @return         :   void
+     *
+     *   @revision Log   :   V1.1 - Created  - 06/24/2022 - Mrinal Das
+     *		          
+     * 
+     **/
     
-	// Cast the object to the MyApexClass custom type
-    public Static void CastObjectToClass(){
-        Object obj = new MyApexClass();
-        MyApexClass mc = (MyApexClass)obj;
-        mc.ObjectMethod();
+    public Static void castObjectToClass(){
+        Object obj = new ApexDataTypes();
+        ApexDataTypes mc = (ApexDataTypes)obj;
+        mc.objectMethod();
     }
+
+    /**
+     * 
+     *   @description    :   Examples of few Data Types
+     *
+     *   @args           :   
+     *
+     *   @return         :   void
+     *
+     *   @revision Log   :   V1.1 - Created  - 06/24/2022 - Mrinal Das
+     *		          
+     * 
+     **/
     
-    public Static void PrimitiveTypes() {
+    public Static void primitiveTypes() {
         Boolean isWinner = true;
         Double d=3.14159;
         ID id='00300000003T2PGAA0';
@@ -23,9 +72,22 @@ public class MyApexClass {
         Long l = 21475698452L;
         String s = 'The quick brown fox jumped over the lazy dog.';
     }
+
+    /**
+     * 
+     *   @description    :  Practising Primitive Data Types
+     *
+     *   @args           :   
+     *
+     *   @return         :   void
+     *
+     *   @revision Log   :   V1.1 - Created  - 06/24/2022 - Mrinal Das
+     *		          
+     * 
+     **/
     
     //Date Class
-    public Static void AddingDates(){
+    public Static void addingDates(){
         date myDate = date.newInstance(1990, 11, 21);
         
         //Adding Days
@@ -62,8 +124,21 @@ public class MyApexClass {
         system.debug(myDates);
         
     }
+
+    /**
+     * 
+     *   @description    :    Datetime Methods
+     *
+     *   @args           :   
+     *
+     *   @return         :   void
+     *
+     *   @revision Log   :   V1.1 - Created  - 06/24/2022 - Mrinal Das
+     *		          
+     * 
+     **/
     
-    public Static void DateTimeClass(){
+    public Static void dateTimeMethod(){
         //addDays
         Datetime myDateTime = Datetime.newInstance(1960, 2, 17);
         Datetime newDateTime = myDateTime.addDays(2);
@@ -71,7 +146,20 @@ public class MyApexClass {
         System.assertEquals(expected, newDateTime);
     }
 
-    public Static void StringClass() {
+    /**
+     * 
+     *   @description    :   Different String Methods
+     *
+     *   @args           :   
+     *
+     *   @return         :   void
+     *
+     *   @revision Log   :   V1.1 - Created  - 06/24/2022 - Mrinal Das
+     *		          
+     * 
+     **/
+
+    public Static void stringMethod() {
         String s = 'Hello Maximillian';
         String s2 = s.abbreviate(8);
         String s3 = s.abbreviate(9,6);
@@ -96,14 +184,26 @@ public class MyApexClass {
     
     static final Integer PRIVATE_INT_CONST = 200; // Using Static Keywords
     static final Integer PRIVATE_INT_CONST2;
+
+    /**
+     * 
+     *   @description    :   Example of Apex Constants
+     *
+     *   @args           :   
+     *
+     *   @return         :   Integer
+     *
+     *   @revision Log   :   V1.1 - Created  - 06/24/2022 - Mrinal Das
+     *		          
+     * 
+     **/
     
-    public Static Integer ApexConstants(){        
+    public Static Integer apexConstants(){        
         return 2+7;
     }
     
     static {
-        PRIVATE_INT_CONST2 = ApexConstants();
+        PRIVATE_INT_CONST2 = apexConstants();
         System.debug(PRIVATE_INT_CONST2);
     }
-    
 }

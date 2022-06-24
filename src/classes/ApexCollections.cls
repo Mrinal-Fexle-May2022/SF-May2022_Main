@@ -1,4 +1,30 @@
-public class Collections {
+/**
+*  Description     :  Class for Practising Apex Collections
+*
+*  Created By      :  Mrinal Das
+*
+*  Created Date    :  06/24/2022
+*
+*  Revision Logs   :    V1.0 - Created - Mrinal Das
+*				   
+*
+**/
+
+public with sharing class ApexCollections {
+    
+    /**
+     * 
+     *   @description    :   practising of declaring a list, acessing elements from a list and adding value to One dimensional list
+     *
+     *   @args           :   
+     *
+     *   @return         :   Void
+     *
+     *   @revision Log   :   V1.1 - Created  - 06/24/2022 - Mrinal Das
+     *		          
+     * 
+     **/
+
     public static void listInApex(){
         //Create an empty list of String
         List<String> my_list = new List<String>();
@@ -18,8 +44,21 @@ public class Collections {
         colors[0] = 'Green';
         System.debug(colors);
     }
+
+    /**
+     * 
+     *   @description    :   Practicing Set in Apex. Defining a set, adding elements to a set and removing elements from a set
+     *
+     *   @args           :   
+     *
+     *   @return         :   Void
+     *
+     *   @revision Log   :   V1.1 - Created  - 06/24/2022 - Mrinal Das
+     *		          
+     * 
+     **/
     
-    public static void SetInApex(){
+    public static void setInApex(){
         //Define a New Set with Two Hardcoded Elements
         Set<String> myStringSet = new Set<String>{'New York', 'Paris'};
         
@@ -35,8 +74,21 @@ public class Collections {
         System.debug(mySet);
         
     }
+
+    /**
+     * 
+     *   @description    :   Practising Maps in Apex 
+     *
+     *   @args           :   
+     *
+     *   @return         :   Void
+     *
+     *   @revision Log   :   V1.1 - Created  - 06/24/2022 - Mrinal Das
+     *		          
+     * 
+     **/
     
-    public static void MapInApex(){
+    public static void mapInApex(){
         Map<Integer, String> m = new Map<Integer, String>();
         m.put(1, 'First Entry');
         m.put(2, 'Second Entry');
@@ -47,5 +99,4 @@ public class Collections {
         System.debug('Keys of the value:::' + s);
         System.debug(m);
     }
-
 }
