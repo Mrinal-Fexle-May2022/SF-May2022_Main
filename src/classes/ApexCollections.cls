@@ -27,18 +27,19 @@ public with sharing class ApexCollections {
 
     public static void listInApex(){
         //Create an empty list of String
-        List<String> my_list = new List<String>();
+        List<String> listOfString = new List<String>();
         // Create a nested list
-        List<List<Set<Integer>>> my_list_2 = new List<List<Set<Integer>>>();
+        List<List<Set<Integer>>> nestedList = new List<List<Set<Integer>>>();
         
         //To access elements in a list, use the List methods provided by Apex
-        List<Integer> myList = new List<Integer>(); // Define a new list
-        mylist.add(47);    // Adds a second element of value 47 to the end of the list
-        Integer i = myList.get(0); // Retrieves the element at index 0
-        myList.set(0, 1);   // Adds the integer 1 to the list at index 0
-        myList.clear();   // Removes all elements from the list
+        List<Integer> listOfIntegers = new List<Integer>(); // Define a new list
+        listOfIntegers.add(47);    // Adds a second element of value 47 to the end of the list
+        Integer retrive = listOfIntegers.get(0); // Retrieves the element at index 0
+        listOfIntegers.set(0, 1);   // Adds the integer 1 to the list at index 0
+        listOfIntegers.clear();   // Removes all elements from the list
         
-        system.debug(i);
+        system.debug(retrive);
+        
         //Using Array Notation for One Dimentional Array
         List<String> colors = new String[1];
         colors[0] = 'Green';
@@ -89,14 +90,14 @@ public with sharing class ApexCollections {
      **/
     
     public static void mapInApex(){
-        Map<Integer, String> m = new Map<Integer, String>();
-        m.put(1, 'First Entry');
-        m.put(2, 'Second Entry');
-        System.assert(m.containskey(1));
-        String value = m.get(2);
+        Map<Integer, String> mapOfIntegerWithString = new Map<Integer, String>();
+        mapOfIntegerWithString.put(1, 'First Entry');
+        mapOfIntegerWithString.put(2, 'Second Entry');
+        System.assert(mapOfIntegerWithString.containskey(1));
+        String value = mapOfIntegerWithString.get(2);
         System.assertEquals('Second Entry', value);
-        Set<Integer> s = m.keySet(); 
-        System.debug('Keys of the value:::' + s);
-        System.debug(m);
+        Set<Integer> setWithKey = mapOfIntegerWithString.keySet(); 
+        System.debug('Keys of the value:::' + setWithKey);
+        System.debug(mapOfIntegerWithString);
     }
 }

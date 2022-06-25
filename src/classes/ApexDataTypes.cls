@@ -66,11 +66,11 @@ public with sharing class ApexDataTypes {
     
     public Static void primitiveTypes() {
         Boolean isWinner = true;
-        Double d=3.14159;
+        Double point = 3.14159;
         ID id='00300000003T2PGAA0';
-        Integer i = 1;
-        Long l = 21475698452L;
-        String s = 'The quick brown fox jumped over the lazy dog.';
+        Integer num = 1;
+        Long num2 = 21475698452L;
+        String str = 'The quick brown fox jumped over the lazy dog.';
     }
 
     /**
@@ -142,8 +142,8 @@ public with sharing class ApexDataTypes {
         //addDays
         Datetime myDateTime = Datetime.newInstance(1960, 2, 17);
         Datetime newDateTime = myDateTime.addDays(2);
-        Datetime expected = Datetime.newInstance(1960, 2, 19);
-        System.assertEquals(expected, newDateTime);
+        Datetime expectedDateTime = Datetime.newInstance(1960, 2, 19);
+        System.assertEquals(expectedDateTime, newDateTime);
     }
 
     /**
@@ -160,26 +160,26 @@ public with sharing class ApexDataTypes {
      **/
 
     public Static void stringMethod() {
-        String s = 'Hello Maximillian';
-        String s2 = s.abbreviate(8);
-        String s3 = s.abbreviate(9,6);
-        String s4 = s.Capitalize();
-        System.assertEquals('Hello...', s2);
-        System.assertEquals(8, s2.length());
+        String str = 'Hello Maximillian';
+        String str1 = str.abbreviate(8);
+        String str2 = str.abbreviate(9,6);
+        String str3 = str.Capitalize();
+        System.assertEquals('Hello...', str1);
+        System.assertEquals(8, str1.length());
         
-        System.debug(s2);
-        System.debug(s3);
-        System.debug(s4);
+        System.debug(str1);
+        System.debug(str2);
+        System.debug(str3);
 
         //codePointAt(index)
-        String str = '\u03A9 is Ω (Omega), and \uD835\uDD0A ' + 
+        String str4 = '\u03A9 is Ω (Omega), and \uD835\uDD0A ' + 
                     ' is Fraktur Capital G.';
-        System.assertEquals(937, str.codePointAt(0));
-        System.assertEquals(120074, str.codePointAt(20));
+        System.assertEquals(937, str4.codePointAt(0));
+        System.assertEquals(120074, str4.codePointAt(20));
         // Escaped or unescaped forms of the same character have the same code point
-        System.assertEquals(str.codePointAt(0), str.codePointAt(5));
+        System.assertEquals(str4.codePointAt(0), str4.codePointAt(5));
         
-        System.debug(str);
+        System.debug(str4);
     }
     
     static final Integer PRIVATE_INT_CONST = 200; // Using Static Keywords
@@ -187,7 +187,7 @@ public with sharing class ApexDataTypes {
 
     /**
      * 
-     *   @description    :   Example of Apex Constants
+     *   @description    :   Example of Apex Consstant
      *
      *   @args           :   
      *
