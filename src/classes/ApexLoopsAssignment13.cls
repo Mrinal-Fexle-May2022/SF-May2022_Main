@@ -121,7 +121,7 @@ public with sharing class ApexLoopsAssignment13 {
         } else if (place == 3) {
             medalColor = 'bronze';
         } else {
-            medal_color = null;
+            medalColor = null;
         }
         
         System.debug(medalColor);
