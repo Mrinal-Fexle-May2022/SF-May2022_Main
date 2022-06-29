@@ -35,6 +35,7 @@ public with sharing class ApexClassesAssignment13 {
 
     public static void processString(String str) {
         str = 'Modified Value';
+    
     }
 
     /**
@@ -54,12 +55,14 @@ public with sharing class ApexClassesAssignment13 {
         List<Integer> fillMe = new List<Integer>();
         reference(fillMe);
         //The list is modified and contails five items
-        System.assertEquals(fillMe.size(),5);
+        System.assertEquals(fillMe.size(),6);
+        System.debug(fillMe);
 
         List<Integer> createMe = new List<Integer>();
-        referenceNew(createMe);
-        // The list is not modified and point to the original list
-        System.assertEquals(createMe.size(),0);
+        createMe=referenceNew(createMe);
+        // The list is modified after passing the reference value
+        System.assertEquals(createMe.size(),5);
+        System.debug(createMe);
     }
 
     public static void reference(List<Integer> listOfTemps) {
@@ -72,8 +75,9 @@ public with sharing class ApexClassesAssignment13 {
         listOfTemps.add(82);
     }
 
-    public static void referenceNew(List<Integer> listOfTemps2) {
+    public static List<Integer> referenceNew(List<Integer> listOfTemps2) {
         listOfTemps2 = new List<Integer>{55, 59, 62, 60, 63};
+        return listOfTemps2;
     }
 
     /**
