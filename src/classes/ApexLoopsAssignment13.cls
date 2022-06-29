@@ -113,18 +113,18 @@ public with sharing class ApexLoopsAssignment13 {
 
     public static void apexConditionalStatements(){
         Integer place = 2;
-        String medal_color;
+        String medalColor;
         if (place == 1) {
-            medal_color = 'gold';
+            medalColor = 'gold';
         } else if (place == 2) {
-            medal_color = 'silver';
+            medalColor = 'silver';
         } else if (place == 3) {
-            medal_color = 'bronze';
+            medalColor = 'bronze';
         } else {
             medal_color = null;
         }
         
-        System.debug(medal_color);
+        System.debug(medalColor);
     }
 
 }
