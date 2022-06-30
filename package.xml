@@ -2,10 +2,7 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
         <members>ApexIntanceOfKeyword</members>
-        <members>CustomerPurchaseOrder</members>
-        <members>EmployeePurchaseOrder</members>
-        <members>ProcessPurchaseOrder</members>
-        <members>PurchaseOrder</members>
+        <members>ApexInterfaces</members>
         <members>SubClass</members>
         <members>SuperClass</members>
         <members>ThisKeyWord</members>
