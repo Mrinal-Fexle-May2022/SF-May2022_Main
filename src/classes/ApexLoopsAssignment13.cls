@@ -35,6 +35,61 @@ public with sharing class ApexLoopsAssignment13 {
 
         System.debug(count);
     }
+    
+    /**
+     * 
+     *   @description    :   Example of Do While loop iterating on a list
+     *
+     *   @args           :   
+     *
+     *   @return         :   void
+     *
+     *   @revision Log   :   V1.1 - Created  - 06/27/2022 - Mrinal Das
+     *		              
+     * 
+     **/
+    
+    public static void listOnDoWhile(){
+        List<Lead> leadList = [SELECT id, Name, Company FROM Lead WHERE Status = 'Working - Contacted'];
+        Integer indexOfList = 0;
+        
+    
+    	do {
+            
+            system.debug(leadList[indexOfList]);
+            indexOfList++;
+            
+    		}
+        
+    	while(indexOfList < 3);  
+
+    }
+        
+    /**
+     * 
+     *   @description    :   Updating Number Of locations in Account
+     *
+     *   @args           :   
+     *
+     *   @return         :   void
+     *
+     *   @revision Log   :   V1.1 - Created  - 06/27/2022 - Mrinal Das
+     *		              
+     * 
+     **/
+    
+    public static void listOnWhile() {
+        List<Account> updateAccountsRecords = [SELECT Id, Name, NumberofLocations__c FROM Account];
+        integer i = 1;
+        
+        while (i<5) {
+            updateAccountsRecords[i].NumberofLocations__c = 2;
+            System.debug(' Updated Number Of Locations ' + updateAccountsRecords[i].NumberofLocations__c);
+            i++;
+        }
+        
+        
+    }
 
     /**
      * 
@@ -72,7 +127,7 @@ public with sharing class ApexLoopsAssignment13 {
      **/
 
     public static void apexTraditionalForLoop(){
-        for (Integer i = 0, j = 0; i < 10; i++) {
+        for (Integer i = 0; i < 10; i++) {
             System.debug(i+1);
         }
     }
@@ -97,6 +152,36 @@ public with sharing class ApexLoopsAssignment13 {
             System.debug(i);
         }
     }
+    
+    /**
+     * 
+     *   @description    :   Iteration of loop on a Map
+     *
+     *   @args           :   
+     *
+     *   @return         :   void
+     *
+     *   @revision Log   :   V1.1 - Created  - 06/27/2022 - Mrinal Das
+     *		              
+     * 
+     **/
+    
+    public static void loopOnMap() {
+ 		List<Contact> conList = [select Id,Name from Contact LIMIT 5];
+		Map<Id,Contact> mapOfContacts = new Map<Id,Contact>();
+		System.debug('');
+		for(Contact con : conList){
+    		mapOfContacts.put(con.Id,con); 
+		}
+	system.debug('Map of Contact -> ' + mapOfContacts);
+        
+        System.debug('-------------***----------------');
+        for(Id conId: mapOfContacts.Keyset()){
+            System.debug('###'+mapOfContacts.get(conId));
+        }
+	}
+
+    
 
     /**
      * 
@@ -126,5 +211,6 @@ public with sharing class ApexLoopsAssignment13 {
         
         System.debug(medalColor);
     }
+           
 
 }

@@ -32,6 +32,19 @@ public with sharing class ApexClassesAssignment13 {
         System.assertEquals(msg, 'Original Value');
         System.debug(msg);
     }
+    
+    /**
+     * 
+     *   @description    :  Changing the value of the primitive type
+     *
+     *   @args           :   
+     *
+     *   @return         :   void
+     *
+     *   @revision Log   :   V1.1 - Created  - 06/27/2022 - Mrinal Das
+     *		              
+     * 
+     **/
 
     public static void processString(String str) {
         str = 'Modified Value';
@@ -60,10 +73,23 @@ public with sharing class ApexClassesAssignment13 {
 
         List<Integer> createMe = new List<Integer>();
         createMe=referenceNew(createMe);
-        // The list is modified after passing the reference value
+        // The list is not modified and point to the original list
         System.assertEquals(createMe.size(),5);
         System.debug(createMe);
     }
+    
+    /**
+     * 
+     *   @description    :   adding values to the list
+     *
+     *   @args           :   
+     *
+     *   @return         :   void
+     *
+     *   @revision Log   :   V1.1 - Created  - 06/27/2022 - Mrinal Das
+     *		              
+     * 
+     **/
 
     public static void reference(List<Integer> listOfTemps) {
         //Add rounded temperaturea for the last five days

@@ -86,6 +86,7 @@ public with sharing class StaticMethodsAndVariables {
 
     public void plot(Double x, Double y) {
         points.add(new Point(x, y));
+        System.debug(points);
     }
 
 /**
@@ -114,6 +115,8 @@ public with sharing class StaticMethodsAndVariables {
      }
 
    static Map<String, RGB> colorMap = new Map<String, RGB>();
+   
+   
 
    //Static initialization code is a block of code preceded with the keyword static.
 
@@ -122,4 +125,22 @@ public with sharing class StaticMethodsAndVariables {
         colorMap.put('cyan', new RGB(0, 255, 255));
         colorMap.put('magenta', new RGB(255, 0, 255));
     }
+    
+    /**
+     * 
+     *   @description    :   Printing out the output
+     *
+     *   @args           :   
+     *
+     *   @return         :   void
+     *
+     *   @revision Log   :   V1.1 - Created  - 06/27/2022 - Mrinal Das
+     *		              
+     * 
+     **/
+    
+    public void printColor(){
+        System.debug(colorMap);
+    }   
+    
 }
