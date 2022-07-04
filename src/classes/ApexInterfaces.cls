@@ -1,3 +1,15 @@
+/**
+*  Description     :   Outer class for Interface purchase order example
+*
+*  Created By      :  Mrinal Das
+*
+*  Created Date    :  06/30/2022
+*
+*  Revision Logs   :    V1.0 - Created - Mrinal Das
+*				      
+*
+**/
+
 public with sharing class ApexInterfaces {
     
     /**
