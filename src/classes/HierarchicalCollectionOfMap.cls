@@ -111,11 +111,11 @@ public with sharing class HierarchicalCollectionOfMap {
 
         for(String countryCode: mapOfCountryCodeWithCountryWithStateAndDistrict.keySet()){
             for(String country: mapOfCountryCodeWithCountryWithStateAndDistrict.get(countryCode).keySet()){
-                if (country.indexOf('S') == 0){
+                if (country.startsWithIgnoreCase('S')){
                     for(String state: mapOfCountryCodeWithCountryWithStateAndDistrict.get(countryCode).get(country).keySet()){
-                        if(state.indexOf('S') == 0){
+                        if(state.startsWithIgnoreCase('S')){
                             for(String district: mapOfCountryCodeWithCountryWithStateAndDistrict.get(countryCode).get(country).get(state)){
-                                if(district.indexOf('S') == 0){
+                                if(district.startsWithIgnoreCase('S')){
                                     System.debug(countryCode + '=>' + country + '=>' + state + '=>' + district);
                                 }
                             }
