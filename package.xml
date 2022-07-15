@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
         <members>CountryStateDistrictDataManipulation</members>
@@ -11,8 +11,25 @@
         <name>CustomObject</name>
     </types>
     <types>
+        <members>Country__c</members>
+        <members>District__c</members>
+        <members>State__c</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>Country__c-Country Layout</members>
+        <members>District__c-District Layout</members>
+        <members>State__c-State Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
         <members>*</members>
         <name>Profile</name>
+    </types>
+    <types>
+        <members>Country__c</members>
+        <members>District__c</members>
+        <name>SharingRules</name>
     </types>
     <version>53.0</version>
 </Package>
