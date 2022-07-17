@@ -15,54 +15,9 @@ public with sharing class CountryStateDistrictDataManipulation {
     
     // Global Map
     Map<String,Map<String,List<String>>> mapOfCountryWithStateAndDistrict = new Map<String,Map<String,List<String>>>();
-
-    //Method to Map Districts, States and Countries
-    public CountryStateDistrictDataManipulation(String word) {
-        
-            List<District__c> listOfdistrict = [SELECT Name, State_Name__r.Name, State_Name__r.Country_Name__r.Name FROM District__c];
-    		List<String> listOfCountryStateDistrict = new List<String>();
-        if(listOfdistrict.size()> 0){
-            
-            for(District__c district : listOfDistrict){
-                
-                //Filling the Global Map
-                if(!mapOfCountryWithStateAndDistrict.containsKey(district.State_Name__r.Country_Name__r.Name)){
-                    mapOfCountryWithStateAndDistrict.put(district.State_Name__r.Country_Name__r.Name, new Map<String,List<String>>());
-                }
-                if(!mapOfCountryWithStateAndDistrict.get(district.State_Name__r.Country_Name__r.Name).containsKey(district.state_Name__r.Name)){
-                    mapOfCountryWithStateAndDistrict.get(district.State_Name__r.Country_Name__r.Name).put(district.State_Name__r.Name, new List<String>());
-                }
-                
-                if(!mapOfCountryWithStateAndDistrict.get(district.State_Name__r.Country_Name__r.Name).get(district.State_Name__r.Name).contains(district.Name)){
-                    mapOfCountryWithStateAndDistrict.get(district.State_Name__r.Country_Name__r.Name).get(district.State_Name__r.Name).add(district.Name);
-                    
-                    //Country, State and District starts with a particular Keyword
-                    if(district.State_Name__r.Country_Name__r.Name.startsWithIgnoreCase(word)){
-                        if(district.State_Name__r.Name.startsWithIgnoreCase(word)){
-                            listOfCountryStateDistrict.add(district.State_Name__r.Country_Name__r.Name + '-' + district.State_Name__r.Name + '-' + district.Name);
-                        }
-                    }
-                }
-    	    }
-    	}
-        System.debug('Map -> ' + mapOfCountryWithStateAndDistrict);
-        System.debug('List Of Country State and District -> ' + listOfCountryStateDistrict);
-    }
-
-    /**
-     * 
-     *   @description    :  This method  performs Aggregate query on state and districts.
-     *
-     *   @args           :   
-     *
-     *   @return         :   void
-     *
-     *   @revision Log   :   V1.1 - Created  - 07/13/2022 - Mrinal Das
-     *		              
-     * 
-     **/
+    List<District__c> listOfdistrict = [SELECT Name, State_Name__r.Name, State_Name__r.Country_Name__r.Name FROM District__c];
     
-    public CountryStateDistrictDataManipulation(){
+        public CountryStateDistrictDataManipulation(){
         
         // List to Update Feilds
         List<State__c> StatesRollUpToUpdate = new List<State__c>();
@@ -99,8 +54,45 @@ public with sharing class CountryStateDistrictDataManipulation {
         if(countrytRollUpToUpdate.size()>0){
             update countrytRollUpToUpdate;
         }
+
+        if(listOfDistrict.size()>0){
+            for(District__c district : listOfDistrict){
+
+                //Filling the Global Map
+                if(!mapOfCountryWithStateAndDistrict.containsKey(district.State_Name__r.Country_Name__r.Name)){
+                    mapOfCountryWithStateAndDistrict.put(district.State_Name__r.Country_Name__r.Name, new Map<String,List<String>>());
+                }
+                if(!mapOfCountryWithStateAndDistrict.get(district.State_Name__r.Country_Name__r.Name).containsKey(district.state_Name__r.Name)){
+                    mapOfCountryWithStateAndDistrict.get(district.State_Name__r.Country_Name__r.Name).put(district.State_Name__r.Name, new List<String>());
+                }
+                if(!mapOfCountryWithStateAndDistrict.get(district.State_Name__r.Country_Name__r.Name).get(district.State_Name__r.Name).contains(district.Name)){
+                    mapOfCountryWithStateAndDistrict.get(district.State_Name__r.Country_Name__r.Name).get(district.State_Name__r.Name).add(district.Name);
+                }
+            }
+        }
+
+        System.debug('Map -> ' + mapOfCountryWithStateAndDistrict);
         
     }
+    
+    //Method to Map Districts, States and Countries
+    public CountryStateDistrictDataManipulation(String word) {
+        
+        List<String> listOfCountryStateDistrict = new List<String>();
+        if(listOfdistrict.size()> 0){
+            
+            for(District__c district : listOfDistrict){
+                    
+                    //Country, State and District starts with a particular Keyword
+                    if(district.State_Name__r.Country_Name__r.Name.startsWithIgnoreCase(word)){
+                        if(district.State_Name__r.Name.startsWithIgnoreCase(word)){
+                            listOfCountryStateDistrict.add(district.State_Name__r.Country_Name__r.Name + '-' + district.State_Name__r.Name + '-' + district.Name);
+                        }
+                    }
+                }
+    	    }
+        System.debug('List Of Country State and District -> ' + listOfCountryStateDistrict);
+    	}
 
 
     /**
@@ -153,6 +145,7 @@ public with sharing class CountryStateDistrictDataManipulation {
         }
         
     }
+    
 
     /**
     *  Description     :  Country Wrapper Class
