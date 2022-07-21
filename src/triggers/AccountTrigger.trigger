@@ -9,7 +9,7 @@
 *
 **/
 
-trigger SendEmail on Account (after insert, before insert) {
+trigger AccountTrigger on Account (after insert, before insert) {
 
     if(Trigger.isBefore){
         if(Trigger.isInsert){
@@ -26,4 +26,5 @@ trigger SendEmail on Account (after insert, before insert) {
             AccountTriggerHandler.sendAccountEmail(Trigger.New);
         }
     }
+
 }

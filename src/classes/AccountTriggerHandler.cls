@@ -72,6 +72,9 @@ public with sharing class AccountTriggerHandler {
         
         //Email function to send mail
         
-        Messaging.SendEmail(emailList);
+        if(emailList.size()>0){
+
+            Messaging.SendEmail(emailList);
+        }
     }
 }
