@@ -9,12 +9,18 @@
 *
 **/
 
-trigger AccountTrigger on Account (after insert, before insert) {
+trigger AccountTrigger on Account (after insert, before insert, after update, before update) {
 
     if(Trigger.isBefore){
         if(Trigger.isInsert){
 
             //Calling updateaccount method from the class
+            AccountTriggerHandler.updateAccountNumber(Trigger.New);
+        }
+        
+        //Throws Error While updating the account number feild
+        if(Trigger.isUpdate){
+            AccountTriggerHandler.accountNumberUpdateError(Trigger.New, Trigger.oldMap);
             AccountTriggerHandler.updateAccountNumber(Trigger.New);
         }
     }
@@ -25,6 +31,11 @@ trigger AccountTrigger on Account (after insert, before insert) {
             //Calling sendemail method from the class
             AccountTriggerHandler.sendAccountEmail(Trigger.New);
         }
+        
+        //Send Email When feild is Updated
+        if(Trigger.isUpdate){
+            
+            AccountTriggerHandler.UpdateAccountEmail(Trigger.New, Trigger.oldMap);
+        }
     }
-
 }
