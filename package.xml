@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>AccountTriggerHandler</members>
+        <members>ContactTriggerHandler</members>
         <name>ApexClass</name>
     </types>
     <types>
-        <members>AccountTrigger</members>
-        <members>AccountTriggerEvents</members>
+        <members>ContactTrigger</members>
         <name>ApexTrigger</name>
     </types>
     <types>
-        <members>Account.Email__c</members>
-        <members>Account.IFSC_Code__c</members>
+        <members>Account.Property__c</members>
+        <members>Account.Status__c</members>
+        <members>Contact.Status__c</members>
         <name>CustomField</name>
+    </types>
+    <types>
+        <members>Property__c</members>
+        <name>CustomObject</name>
     </types>
     <version>53.0</version>
 </Package>
