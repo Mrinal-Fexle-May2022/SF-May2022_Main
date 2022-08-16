@@ -18,5 +18,69 @@
         <members>Property__c</members>
         <name>CustomObject</name>
     </types>
+    <members>OpportunityTriggerHandler</members>
+    <name>ApexClass</name>
+    </types>
+    <types>
+        <members>OpportunityTrigger</members>
+        <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>Automobile_Presence_Sensor__c.Account__c</members>
+        <members>Automobile_Presence_Sensor__c.Opportunity__c</members>
+        <members>Automobile_Sensor__c.Account__c</members>
+        <members>Automobile_Sensor__c.Opportunity__c</members>
+        <members>Automobile_TDU__c.Account__c</members>
+        <members>Automobile_TDU__c.Opportunity__c</members>
+        <members>Automobile_Tag__c.Account__c</members>
+        <members>Automobile_Tag__c.Opportunity__c</members>
+        <members>Opportunity.Automobile_Tag_Details_1__c</members>
+        <members>Opportunity.Automobile_Tag_Details_2__c</members>
+        <members>Opportunity.Automobile_Tag_Details_3__c</members>
+        <members>Opportunity.Installation_Account__c</members>
+        <members>Opportunity.Return_To_HQ__c</members>
+        <members>Opportunity.Shipment_Account__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Automobile_Presence_Sensor__c</members>
+        <members>Automobile_Sensor__c</members>
+        <members>Automobile_TDU__c</members>
+        <members>Automobile_Tag__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Automobile_Presence_Sensor__c</members>
+        <members>Automobile_Sensor__c</members>
+        <members>Automobile_TDU__c</members>
+        <members>Automobile_Tag__c</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>Automobile_Presence_Sensor__c-Automobile Presence Sensor Layout</members>
+        <members>Automobile_Sensor__c-Automobile Sensor Layout</members>
+        <members>Automobile_TDU__c-Automobile TDU Layout</members>
+        <members>Automobile_Tag__c-Automobile Tag Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>Automobile_Presence_Sensor__c.All</members>
+        <members>Automobile_Sensor__c.All</members>
+        <members>Automobile_TDU__c.All</members>
+        <members>Automobile_Tag__c.All</members>
+        <name>ListView</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Profile</name>
+    </types>
+    <types>
+        <members>Automobile_Presence_Sensor__c</members>
+        <members>Automobile_Sensor__c</members>
+        <members>Automobile_TDU__c</members>
+        <members>Automobile_Tag__c</members>
+        <members>Opportunity</members>
+        <name>SharingRules</name>
+    </types>
     <version>53.0</version>
 </Package>
