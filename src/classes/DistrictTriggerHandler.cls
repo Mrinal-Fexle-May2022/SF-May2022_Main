@@ -39,18 +39,18 @@ public with sharing class DistrictTriggerHandler {
             }
         }
         
+        //Map of State Where Related District Id matches. 
         Map<Id, State__c> stateMap = new Map<Id, State__c>([SELECT Id, Name, Total_Number_Of_Districts__c, Country_Name__c FROM State__c WHERE Id IN: distSet]);
         set<Id> countrySet = new Set<Id>();
         for(State__c stateIds : stateMap.values()){
             countrySet.add(stateIds.Country_Name__c);
         }
+        
+        //Map of Country
         Map<Id, Country__c> countryMap = new Map<Id, Country__c>([SELECT Id, Name, Total_Number_Of_Districts__c FROM Country__c WHERE Id IN: countrySet]);
-        System.debug(stateMap);
-        System.debug(countryMap);
         
         //Aggregate Function Query on district
         AggregateResult[] districtAggregateResultForState = [SELECT Count(Id) Total_District, State_Name__c FROM District__c GROUP BY State_Name__c];
-        System.debug(districtAggregateResultForState);
         
         for(AggregateResult ar : districtAggregateResultForState){
             Id stateId  = (Id)ar.get('State_Name__c');
@@ -107,7 +107,6 @@ public with sharing class DistrictTriggerHandler {
             for(District__c dist: districtList){
                 //StateIdSet.add(dist.State_Name__c);
                 countryIdSet.add(dist.State_Name__r.Country_Name__c);
-                
         	}
         }
         if(districtOldList != null){
@@ -117,6 +116,8 @@ public with sharing class DistrictTriggerHandler {
             }
         }
         
+        // Map of country, states and Districts to fill Country JSON Data
+        
         Map<Id, Country__c> countries = new Map<Id, Country__c>([SELECT Id, Name, Country_Code__c, Total_Number_Of_States__c, Total_Number_Of_Districts__c, Country_JSON_Data__c 
                                                                  FROM Country__c WHERE Id IN: countryIdSet]);
         Map<Id, State__c> States = new Map<Id, State__c>([SELECT Id, Name, Total_Number_Of_Districts__c, Country_Name__c 
@@ -125,7 +126,9 @@ public with sharing class DistrictTriggerHandler {
                                                                      FROM District__c  WHERE State_Name__r.Country_Name__c IN: countryIdSet]);
         
         if(countries.size() > 0){
+            //State Wrapper Object
             List<StateWrapper> stateWrapperObjectList = new List<StateWrapper>();
+            
             for(Country__c country : countries.values()){
                 //Passing value to the objects of Country Wrapper Class
                 CountryWrapper countryWrapperObject = new CountryWrapper();
@@ -138,7 +141,8 @@ public with sharing class DistrictTriggerHandler {
                     if(state.Country_Name__c == country.Id){
                 		StateWrapper stateWrapperObject = new StateWrapper();
                 		stateWrapperObject.stateName = state.Name;
-                
+                        
+                        //District Wrapper object
                 		List<DistrictWrappper> districtWrappperObjectList = new List<DistrictWrappper>();
                 		for(District__c dist : Districts.values()){
                     		if(dist.State_Name__c == state.Id){
@@ -152,9 +156,11 @@ public with sharing class DistrictTriggerHandler {
                     }
                 }
                 
+                // Serializing JSON Data
                 country.Country_JSON_Data__c = JSON.serialize(countryWrapperObject);
             }
             
+            //Update Country
             update countries.values();
             
         }

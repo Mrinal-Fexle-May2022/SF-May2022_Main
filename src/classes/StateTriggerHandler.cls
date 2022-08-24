@@ -39,6 +39,7 @@ public with sharing class StateTriggerHandler {
             }
         }
         
+        //Country Map Where Country Id Matches on state
         Map<Id, Country__c> countryMap = new Map<Id, Country__c>([SELECT Id, Name, Total_Number_Of_States__c, Total_Number_Of_Districts__c FROM Country__c WHERE Id IN: countrySet]);
         
         //Aggeregate Funtion Query on State
@@ -75,6 +76,8 @@ public with sharing class StateTriggerHandler {
      **/
     
     public static void countryJSONGenerator(List<State__c>stateList, List<State__c>stateOldList){
+        
+        //Country Id Set in State
         set<Id> countryIdSet = new Set<Id>();
         if(stateList != null){
             for(State__c state: stateList){
@@ -88,6 +91,7 @@ public with sharing class StateTriggerHandler {
             }
         }
         
+        //Map Of Countries, States and Districts For Filling Country JSON Data
         Map<Id, Country__c> countries = new Map<Id, Country__c>([SELECT Id, Name, Country_Code__c, Total_Number_Of_States__c, Total_Number_Of_Districts__c, Country_JSON_Data__c 
                                                                  FROM Country__c WHERE Id IN: countryIdSet]);
         Map<Id, State__c> States = new Map<Id, State__c>([SELECT Id, Name, Total_Number_Of_Districts__c, Country_Name__c 
@@ -97,12 +101,14 @@ public with sharing class StateTriggerHandler {
         
         if(countries.Values().size() > 0){
             for(Country__c country : countries.values()){
+                //State Wrapper Object When State is Updated of Inserted
                 List<StateWrapper> stateWrapperObjectList = new List<StateWrapper>();
                 for(State__c state : States.values()){
                     if(state.Country_Name__c == country.Id){
                         StateWrapper stateWrapperObject = new StateWrapper();
                         stateWrapperObject.stateName = state.Name;
                         
+                        //District Wrapper object When district is updated on inserted
                         List<DistrictWrappper> districtWrappperObjectList = new List<DistrictWrappper>();
                         for(District__c dist : Districts.values()){
                             if(dist.State_Name__c == state.Id){
@@ -126,7 +132,7 @@ public with sharing class StateTriggerHandler {
                 // Serialize JSON Data
                 country.Country_JSON_Data__c = JSON.serialize(countryWrapperObject);
             } 
-            
+            // Countries Values updated
             if(countries.size() > 0){
                 update countries.values();
             }
