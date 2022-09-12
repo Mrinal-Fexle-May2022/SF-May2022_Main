@@ -1,0 +1,28 @@
+<template>
+    <lightning-card  title="Calculator">
+        <div class="slds-var-m-around_medium">
+            <lightning-input
+                name="firstNumber"
+                label="First Number"
+                onchange={handleClickOne}
+            ></lightning-input>
+            <lightning-input
+                name="lastNumber"
+                label="Last Number"
+                onchange={handleClickTwo}
+            ></lightning-input>
+            <p class="slds-var-m-top_medium">
+                Total : {total}
+            </p>
+        </div>
+
+        <lightning-button variant="brand" label="ADD" title="Primary action" onclick={addition} 
+            class="slds-m-left_x-small"></lightning-button>
+        <lightning-button variant="brand" label="SUB" title="Primary action" onclick={subtraction} 
+            class="slds-m-left_x-small"></lightning-button>
+        <lightning-button variant="brand" label="MUL" title="Primary action" onclick={multiplication} 
+            class="slds-m-left_x-small"></lightning-button>
+        <lightning-button variant="brand" label="DIV" title="Primary action" onclick={division} 
+            class="slds-m-left_x-small"></lightning-button>
+    </lightning-card>
+</template>
