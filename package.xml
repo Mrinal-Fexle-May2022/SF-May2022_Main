@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>DistrictTriggerHandler</members>
-        <members>StateTriggerHandler</members>
+        <members>AccountRelatedDataLWC</members>
+        <members>ReturnStringToClientSide</members>
         <name>ApexClass</name>
     </types>
     <types>
-        <members>DistrictTrigger</members>
-        <members>StateTrigger</members>
-        <name>ApexTrigger</name>
+        <members>Hello</members>
+        <name>FlexiPage</name>
     </types>
     <types>
-        <members>Admin</members>
-        <name>Profile</name>
+        <members>accountRealtedDetailsLWC</members>
+        <members>callApexMethodInLwc</members>
+        <name>LightningComponentBundle</name>
     </types>
-    <version>53.0</version>
+    <version>55.0</version>
 </Package>
